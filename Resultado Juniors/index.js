@@ -1,4 +1,5 @@
 const express = require("express");
+const helmet = require("helmet");
 const multer = require("multer");
 const bodyparser = require("body-parser");
 const fs = require('fs');
@@ -22,6 +23,7 @@ const upload = multer({ storage });
 const app = express();
 const port = 3000;
 
+app.use(helmet());
 app.use(bodyparser.urlencoded({ extended: true }));
 app.use(bodyparser.json());
 
